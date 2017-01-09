@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
 
@@ -14,11 +15,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let apiURL = "https://congress.api.sunlightfoundation.com"
-        let latitude = 41.373427
-        let longitude = -81.689911
-        let legislatorsURL = apiURL + "/legislators/locate?latitude=" + String(latitude) + "&longitude=" + String(longitude)
+        let address = "1560 Gettysburg Drive, Parma, OH"
+        let geocoder = CLGeocoder()
+        
+        geocoder.geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
+            if((error) != nil){
+                print("Error", error)
+            }
+            if let placemark = placemarks?.first {
+                let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                self.processCoordinates(coordinates: coordinates)
+            }
+        })
+    }
     
+    func processCoordinates(coordinates: CLLocationCoordinate2D) {
+        let apiURL = "https://congress.api.sunlightfoundation.com"
+        let legislatorsURL = apiURL + "/legislators/locate?latitude=" + String(coordinates.latitude) + "&longitude=" + String(coordinates.longitude)
         let url = URL(string: legislatorsURL)
         
         URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
@@ -26,20 +39,23 @@ class ViewController: UIViewController {
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-                if let legislators = json["results"] as? [[String:Any]] {
-                    for legislator in legislators {
-                        if let firstName = legislator["first_name"] as? String {
-                            if let lastName = legislator["last_name"] as? String {
-                                print(firstName + " " + lastName)
-                            }
-                        }
-                    }
+                if let reps = json["results"] as? [[String:Any]] {
+                    self.processReps(reps: reps)
                 }
             } catch let error as NSError {
                 print(error)
             }
         }).resume()
-        
+    }
+    
+    func processReps(reps: [[String:Any]]) {
+        for rep in reps {
+            if let firstName = rep["first_name"] as? String {
+                if let lastName = rep["last_name"] as? String {
+                    print(firstName + " " + lastName)
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
