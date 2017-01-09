@@ -52,7 +52,8 @@ class ViewController: UIViewController {
         for rep in reps {
             if let firstName = rep["first_name"] as? String {
                 if let lastName = rep["last_name"] as? String {
-                    print(firstName + " " + lastName)
+                    let fullName = firstName + " " + lastName
+                    print(fullName)
                 }
             }
         }
