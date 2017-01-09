@@ -15,24 +15,19 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let urlString = "https://httpbin.org/ip"
-        
         let url = URL(string: urlString)
-        URLSession.shared.dataTask(with:url!) { (data, response, error) in
-            if error != nil {
-                print(error ?? "Error")
-            } else {
-                do {
-                    
-                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:String]
-                    let ip = parsedData["origin"]
-                    print("ip: " + ip!)
-
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
+        
+        URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
+            guard let data = data, error == nil else { return }
             
-            }.resume()
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+                let ip = json["origin"] as? String ?? ""
+                print(ip)
+            } catch let error as NSError {
+                print(error)
+            }
+        }).resume()
         
     }
 
