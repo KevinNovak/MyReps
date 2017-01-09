@@ -14,16 +14,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let urlString = "https://httpbin.org/ip"
-        let url = URL(string: urlString)
+        let apiURL = "https://congress.api.sunlightfoundation.com"
+        let latitude = 41.373427
+        let longitude = -81.689911
+        let legislatorsURL = apiURL + "/legislators/locate?latitude=" + String(latitude) + "&longitude=" + String(longitude)
+    
+        let url = URL(string: legislatorsURL)
         
         URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
             guard let data = data, error == nil else { return }
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-                let ip = json["origin"] as? String ?? ""
-                print(ip)
+                if let legislators = json["results"] as? [[String:Any]] {
+                    for legislator in legislators {
+                        if let firstName = legislator["first_name"] as? String {
+                            if let lastName = legislator["last_name"] as? String {
+                                print(firstName + " " + lastName)
+                            }
+                        }
+                    }
+                }
             } catch let error as NSError {
                 print(error)
             }
