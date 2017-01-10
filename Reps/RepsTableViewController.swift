@@ -14,6 +14,9 @@ class RepsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // removes empty cells
+        tableView.tableFooterView = UIView()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
