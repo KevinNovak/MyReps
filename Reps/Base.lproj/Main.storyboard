@@ -88,47 +88,33 @@
             </objects>
             <point key="canvasLocation" x="-72.799999999999997" y="130.88455772113943"/>
         </scene>
-        <!--Reps View Controller-->
-        <scene sceneID="2o3-CL-gvY">
+        <!--Reps Table View Controller-->
+        <scene sceneID="aoJ-Is-4kG">
             <objects>
-                <viewController storyboardIdentifier="RepsViewController" id="oSo-1C-d5f" customClass="RepsViewController" customModule="Reps" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6pX-Wr-fp0"/>
-                        <viewControllerLayoutGuide type="bottom" id="YKp-pc-If5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="itu-jk-5pv">
+                <tableViewController storyboardIdentifier="RepsTableViewController" id="chf-1V-U6V" customClass="RepsTableViewController" customModule="Reps" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rx3-Ey-wWS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Representatives" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5h-H3-pjH">
-                                <rect key="frame" x="106" y="60" width="162" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{REPS}" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoR-43-sYE">
-                                <rect key="frame" x="160.5" y="111" width="54.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="yoR-43-sYE" firstAttribute="top" secondItem="D5h-H3-pjH" secondAttribute="bottom" constant="30" id="1dT-Bo-csm"/>
-                            <constraint firstItem="D5h-H3-pjH" firstAttribute="top" secondItem="6pX-Wr-fp0" secondAttribute="bottom" constant="40" id="Ctd-Vh-COG"/>
-                            <constraint firstItem="yoR-43-sYE" firstAttribute="centerX" secondItem="itu-jk-5pv" secondAttribute="centerX" id="HPe-Ko-jVh"/>
-                            <constraint firstItem="D5h-H3-pjH" firstAttribute="centerX" secondItem="itu-jk-5pv" secondAttribute="centerX" id="yin-Mt-33B"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="repsLabel" destination="yoR-43-sYE" id="bMj-SY-WhY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eQ6-mG-TwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationItem title="Address" id="C9U-AY-usG" userLabel="Representatives"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="repCell" id="Lsm-oD-t7e">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lsm-oD-t7e" id="BOJ-6v-feP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="chf-1V-U6V" id="8DD-Pb-EMa"/>
+                            <outlet property="delegate" destination="chf-1V-U6V" id="h23-2b-qAM"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZa-TM-erK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="981.60000000000002" y="187.55622188905548"/>
+            <point key="canvasLocation" x="1765" y="186"/>
         </scene>
     </scenes>
 </document>

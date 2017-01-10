@@ -36,7 +36,7 @@ class AddressViewController: UIViewController {
     func processResult(success: Bool) {
         if (success) {
             print("Address valid, found representatives")
-            let repsVC = self.storyboard?.instantiateViewController(withIdentifier: "RepsViewController") as! RepsViewController
+            let repsVC = self.storyboard?.instantiateViewController(withIdentifier: "RepsTableViewController") as! RepsTableViewController
             repsVC.reps = self.reps
             repsVC.navigationItem.title = "Representatives"
             DispatchQueue.main.async(){
