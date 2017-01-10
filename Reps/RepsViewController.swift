@@ -16,23 +16,21 @@ class RepsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        DispatchQueue.main.async(){
-            for rep in self.reps {
-                if let firstName = rep["first_name"] as? String {
-                    if let lastName = rep["last_name"] as? String {
-                        if (self.repsLabel.text == "{REPS}") {
-                            self.repsLabel.text = ""
-                        }
-                        
-                        let fullName = firstName + " " + lastName
-                        self.repsLabel.text = self.repsLabel.text! + fullName + "\n"
-                        
-                        self.repsLabel.lineBreakMode = .byWordWrapping
-                        self.repsLabel.numberOfLines = 0
+        for rep in self.reps {
+            if let firstName = rep["first_name"] as? String {
+                if let lastName = rep["last_name"] as? String {
+                    if (self.repsLabel.text == "{REPS}") {
+                        self.repsLabel.text = ""
                     }
+                    
+                    let fullName = firstName + " " + lastName
+                    self.repsLabel.text = self.repsLabel.text! + fullName + "\n"
+                    
+                    self.repsLabel.lineBreakMode = .byWordWrapping
+                    self.repsLabel.numberOfLines = 0
                 }
             }
-//        }
+        }
     }
     
 
