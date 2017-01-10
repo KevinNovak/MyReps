@@ -37,23 +37,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter your address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99k-j6-O8H">
-                                <rect key="frame" x="115" y="128" width="145" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your legal home address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99k-j6-O8H">
+                                <rect key="frame" x="44" y="104" width="287" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Y9-uG-SGN">
-                                <rect key="frame" x="139" y="171" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Y9-uG-SGN">
+                                <rect key="frame" x="61" y="133" width="252" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="252" id="rQX-xc-YAj"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JnM-71-AWH">
-                                <rect key="frame" x="163" y="223" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JnM-71-AWH">
+                                <rect key="frame" x="163" y="171" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitAddressButtonPressed:" destination="ln6-br-kyI" eventType="touchUpInside" id="G4j-xK-J94"/>
@@ -61,6 +61,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="99k-j6-O8H" firstAttribute="top" secondItem="iuw-gh-cOy" secondAttribute="bottom" constant="40" id="4Qk-mX-d7B"/>
+                            <constraint firstItem="99k-j6-O8H" firstAttribute="centerX" secondItem="eDI-o8-fcd" secondAttribute="centerX" id="I9d-Kf-rCg"/>
+                            <constraint firstItem="1Y9-uG-SGN" firstAttribute="top" secondItem="99k-j6-O8H" secondAttribute="bottom" constant="8" id="Yqu-GX-fwh"/>
+                            <constraint firstItem="JnM-71-AWH" firstAttribute="top" secondItem="1Y9-uG-SGN" secondAttribute="bottom" constant="8" id="bdo-mj-kb7"/>
+                            <constraint firstItem="1Y9-uG-SGN" firstAttribute="centerX" secondItem="eDI-o8-fcd" secondAttribute="centerX" id="k5X-z4-ll6"/>
+                            <constraint firstItem="JnM-71-AWH" firstAttribute="centerX" secondItem="eDI-o8-fcd" secondAttribute="centerX" id="tBm-gW-is7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Address" id="ssh-LB-jCY"/>
                     <connections>
@@ -69,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWh-pY-Rd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-72" y="131"/>
+            <point key="canvasLocation" x="-72.799999999999997" y="130.88455772113943"/>
         </scene>
         <!--Reps View Controller-->
         <scene sceneID="2o3-CL-gvY">
@@ -105,6 +113,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQ6-mG-TwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Address" id="C9U-AY-usG" userLabel="Representatives"/>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="187.55622188905548"/>
         </scene>
