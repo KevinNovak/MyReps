@@ -7,72 +7,34 @@
 //
 
 import UIKit
-import CoreLocation
 
 class RepsViewController: UIViewController {
-    var address = ""
+    var reps: [[String:Any]] = [[String:Any]]()
     
     @IBOutlet weak var repsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        print("Address: " + self.address)
-        
-        let geocoder = CLGeocoder()
-        
-        geocoder.geocodeAddressString(self.address, completionHandler: {(placemarks, error) -> Void in
-            if((error) != nil){
-                print("Error", error)
-            }
-            if let placemark = placemarks?.first {
-                let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
-                self.processCoordinates(coordinates: coordinates)
-            }
-        })
-    }
-    
-    func processCoordinates(coordinates: CLLocationCoordinate2D) {
-        let apiURL = "https://congress.api.sunlightfoundation.com"
-        let legislatorsURL = apiURL + "/legislators/locate?latitude=" + String(coordinates.latitude) + "&longitude=" + String(coordinates.longitude)
-        let url = URL(string: legislatorsURL)
-        
-        URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-                if let reps = json["results"] as? [[String:Any]] {
-                    // creates a different thread that allows the UI to update as soon as execution of thread function completes
-                    DispatchQueue.main.async(){
-                        self.processReps(reps: reps)
+//        DispatchQueue.main.async(){
+            for rep in self.reps {
+                if let firstName = rep["first_name"] as? String {
+                    if let lastName = rep["last_name"] as? String {
+                        if (self.repsLabel.text == "{REPS}") {
+                            self.repsLabel.text = ""
+                        }
+                        
+                        let fullName = firstName + " " + lastName
+                        self.repsLabel.text = self.repsLabel.text! + fullName + "\n"
+                        
+                        self.repsLabel.lineBreakMode = .byWordWrapping
+                        self.repsLabel.numberOfLines = 0
                     }
                 }
-            } catch let error as NSError {
-                print(error)
             }
-        }).resume()
+//        }
     }
     
-    func processReps(reps: [[String:Any]]) {
-        for rep in reps {
-            if let firstName = rep["first_name"] as? String {
-                if let lastName = rep["last_name"] as? String {
-                    if (repsLabel.text == "Loading...") {
-                        repsLabel.text = ""
-                    }
-                    
-                    let fullName = firstName + " " + lastName
-                    print("fullName: " + fullName)
-                    repsLabel.text = repsLabel.text! + fullName + "\n"
-                    print("repsLabel: " + repsLabel.text!)
-                    
-                    repsLabel.lineBreakMode = .byWordWrapping
-                    repsLabel.numberOfLines = 0
-                }
-            }
-        }
-    }
+
 }
 
