@@ -59,13 +59,21 @@
                                     <action selector="submitAddressButtonPressed:" destination="ln6-br-kyI" eventType="touchUpInside" id="G4j-xK-J94"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Could not find any representatives" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTg-Wd-DBO">
+                                <rect key="frame" x="61" y="209" width="262" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="99k-j6-O8H" firstAttribute="top" secondItem="iuw-gh-cOy" secondAttribute="bottom" constant="40" id="4Qk-mX-d7B"/>
                             <constraint firstItem="99k-j6-O8H" firstAttribute="centerX" secondItem="eDI-o8-fcd" secondAttribute="centerX" id="I9d-Kf-rCg"/>
                             <constraint firstItem="1Y9-uG-SGN" firstAttribute="top" secondItem="99k-j6-O8H" secondAttribute="bottom" constant="8" id="Yqu-GX-fwh"/>
+                            <constraint firstItem="JTg-Wd-DBO" firstAttribute="centerX" secondItem="eDI-o8-fcd" secondAttribute="centerX" id="a1S-l7-owZ"/>
                             <constraint firstItem="JnM-71-AWH" firstAttribute="top" secondItem="1Y9-uG-SGN" secondAttribute="bottom" constant="8" id="bdo-mj-kb7"/>
+                            <constraint firstItem="JTg-Wd-DBO" firstAttribute="top" secondItem="JnM-71-AWH" secondAttribute="bottom" constant="15" id="fup-Hz-cTl"/>
                             <constraint firstItem="1Y9-uG-SGN" firstAttribute="centerX" secondItem="eDI-o8-fcd" secondAttribute="centerX" id="k5X-z4-ll6"/>
                             <constraint firstItem="JnM-71-AWH" firstAttribute="centerX" secondItem="eDI-o8-fcd" secondAttribute="centerX" id="tBm-gW-is7"/>
                         </constraints>
@@ -73,6 +81,7 @@
                     <navigationItem key="navigationItem" title="Address" id="ssh-LB-jCY"/>
                     <connections>
                         <outlet property="addressField" destination="1Y9-uG-SGN" id="kK9-fN-S2e"/>
+                        <outlet property="errorLabel" destination="JTg-Wd-DBO" id="87D-Tm-Gz1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWh-pY-Rd1" userLabel="First Responder" sceneMemberID="firstResponder"/>

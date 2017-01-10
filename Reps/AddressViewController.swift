@@ -14,11 +14,19 @@ class AddressViewController: UIViewController {
     var reps: [[String:Any]] = [[String:Any]]()
     
     @IBOutlet weak var addressField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func submitAddressButtonPressed(_ sender: Any) {
         print("Submitted Address Field: " + addressField.text!)
         
+        errorLabel.isHidden = true
         self.processAddress(address: self.addressField.text!)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        errorLabel.isHidden = true
     }
     
     func processResult(success: Bool) {
@@ -31,6 +39,7 @@ class AddressViewController: UIViewController {
             }
         } else {
             print("Address does not contain any representatives")
+            errorLabel.isHidden = false
         }
     }
     
