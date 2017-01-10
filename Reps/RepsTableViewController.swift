@@ -37,6 +37,15 @@ class RepsTableViewController: UITableViewController {
                 let fullName = firstName + " " + lastName
                 cell.repNameLabel.text = fullName
                 
+                cell.repChamberLabel.text = "Unknown"
+                if let chamber = reps[indexPath.row]["chamber"] as? String {
+                    if (chamber == "senate") {
+                        cell.repChamberLabel.text = "Senate"
+                    } else if (chamber == "house") {
+                        cell.repChamberLabel.text = "House of Representatives"
+                    }
+                }
+                
                 cell.repImage.image = UIImage(named:"default_rep_image.png")
                 
                 if let bioGuideID = reps[indexPath.row]["bioguide_id"] as? String {

@@ -12,6 +12,7 @@ class RepsTableViewCell: UITableViewCell {
 //    @IBOutlet weak var repImage: UIImageView!
     @IBOutlet weak var repImage: UIImageView!
     @IBOutlet weak var repNameLabel: UILabel!
+    @IBOutlet weak var repChamberLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
