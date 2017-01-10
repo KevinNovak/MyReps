@@ -56,6 +56,10 @@ class RepsViewController: UIViewController {
         for rep in reps {
             if let firstName = rep["first_name"] as? String {
                 if let lastName = rep["last_name"] as? String {
+                    if (repsLabel.text == "Loading...") {
+                        repsLabel.text = ""
+                    }
+                    
                     let fullName = firstName + " " + lastName
                     print(fullName)
                     repsLabel.text = repsLabel.text! + fullName + "\n"
