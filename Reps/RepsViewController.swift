@@ -44,7 +44,10 @@ class RepsViewController: UIViewController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
                 if let reps = json["results"] as? [[String:Any]] {
-                    self.processReps(reps: reps)
+                    // creates a different thread that allows the UI to update as soon as execution of thread function completes
+                    DispatchQueue.main.async(){
+                        self.processReps(reps: reps)
+                    }
                 }
             } catch let error as NSError {
                 print(error)
@@ -61,14 +64,12 @@ class RepsViewController: UIViewController {
                     }
                     
                     let fullName = firstName + " " + lastName
-                    print(fullName)
+                    print("fullName: " + fullName)
                     repsLabel.text = repsLabel.text! + fullName + "\n"
                     print("repsLabel: " + repsLabel.text!)
                     
                     repsLabel.lineBreakMode = .byWordWrapping
                     repsLabel.numberOfLines = 0
-                    
-                    self.repsLabel.setNeedsDisplay()
                 }
             }
         }
