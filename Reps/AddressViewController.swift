@@ -27,6 +27,10 @@ class AddressViewController: UIViewController {
         super.viewDidLoad()
         
         errorLabel.isHidden = true
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        self.navigationItem.backBarButtonItem = backItem
     }
     
     func processResult(success: Bool) {
@@ -34,6 +38,7 @@ class AddressViewController: UIViewController {
             print("Address valid, found representatives")
             let repsVC = self.storyboard?.instantiateViewController(withIdentifier: "RepsViewController") as! RepsViewController
             repsVC.reps = self.reps
+            repsVC.navigationItem.title = "Representatives"
             DispatchQueue.main.async(){
                 self.navigationController?.pushViewController(repsVC, animated: true)
             }
