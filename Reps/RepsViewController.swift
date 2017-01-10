@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RepsViewController.swift
 //  Reps
 //
 //  Created by Kevin Novak on 1/8/17.
@@ -9,16 +9,20 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController {
-
+class RepsViewController: UIViewController {
+    var address = ""
+    
+    @IBOutlet weak var repsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let address = "1560 Gettysburg Drive, Parma, OH"
+        print("Address: " + self.address)
+        
         let geocoder = CLGeocoder()
         
-        geocoder.geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
+        geocoder.geocodeAddressString(self.address, completionHandler: {(placemarks, error) -> Void in
             if((error) != nil){
                 print("Error", error)
             }
@@ -54,16 +58,16 @@ class ViewController: UIViewController {
                 if let lastName = rep["last_name"] as? String {
                     let fullName = firstName + " " + lastName
                     print(fullName)
+                    repsLabel.text = repsLabel.text! + fullName + "\n"
+                    print("repsLabel: " + repsLabel.text!)
+                    
+                    repsLabel.lineBreakMode = .byWordWrapping
+                    repsLabel.numberOfLines = 0
+                    
+                    self.repsLabel.setNeedsDisplay()
                 }
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
