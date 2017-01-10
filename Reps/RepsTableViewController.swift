@@ -37,6 +37,8 @@ class RepsTableViewController: UITableViewController {
                 let fullName = firstName + " " + lastName
                 cell.repNameLabel.text = fullName
                 
+                cell.repImage.image = UIImage(named:"default_rep_image.png")
+                
                 if let bioGuideID = reps[indexPath.row]["bioguide_id"] as? String {
                     let repImageURLString = "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/225x275/" + bioGuideID + ".jpg"
                     let repImageURL = URL(string: repImageURLString)
