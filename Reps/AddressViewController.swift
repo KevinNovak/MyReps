@@ -97,23 +97,5 @@ class AddressViewController: UIViewController {
             self.processResult(success: false)
             return
         }
-        
-//        for rep in reps {
-//            if let firstName = rep["first_name"] as? String {
-//                if let lastName = rep["last_name"] as? String {
-//                    if (repsLabel.text == "Loading...") {
-//                        repsLabel.text = ""
-//                    }
-//                    
-//                    let fullName = firstName + " " + lastName
-//                    print("fullName: " + fullName)
-//                    repsLabel.text = repsLabel.text! + fullName + "\n"
-//                    print("repsLabel: " + repsLabel.text!)
-//                    
-//                    repsLabel.lineBreakMode = .byWordWrapping
-//                    repsLabel.numberOfLines = 0
-//                }
-//            }
-//        }
     }
 }
