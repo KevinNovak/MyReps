@@ -30,18 +30,32 @@ class RepsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "repCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "repCell", for: indexPath) as! RepsTableViewCell
 
         if let firstName = reps[indexPath.row]["first_name"] as? String {
             if let lastName = reps[indexPath.row]["last_name"] as? String {
                 let fullName = firstName + " " + lastName
-                 cell.textLabel!.text = fullName
+                cell.repNameLabel.text = fullName
+                
+                if let bioGuideID = reps[indexPath.row]["bioguide_id"] as? String {
+                    let repImageURLString = "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/225x275/" + bioGuideID + ".jpg"
+                    let repImageURL = URL(string: repImageURLString)
+                    if let data = try? Data(contentsOf: repImageURL!) {
+                        if let image = UIImage(data: data) {
+                            cell.repImage.image = image
+                        }
+                    }
+                }
             }
         }
 
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
