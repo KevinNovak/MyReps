@@ -17,6 +17,14 @@ class RepsTableViewController: UITableViewController {
 
         // removes empty cells
         tableView.tableFooterView = UIView()
+
+        // removes delay from touches
+        for view in tableView.subviews {
+            if view is UIScrollView {
+                (view as? UIScrollView)!.delaysContentTouches = false
+                break
+            }
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
