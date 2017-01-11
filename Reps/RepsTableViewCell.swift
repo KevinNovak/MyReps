@@ -9,19 +9,37 @@
 import UIKit
 
 class RepsTableViewCell: UITableViewCell {
-//    @IBOutlet weak var repImage: UIImageView!
+    var isObserving = false;
+
     @IBOutlet weak var repImage: UIImageView!
     @IBOutlet weak var repNameLabel: UILabel!
     @IBOutlet weak var repTitleLabel: UILabel!
+    @IBOutlet weak var expandedView: UIView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    class var expandedHeight: CGFloat { get { return 200 } }
+    class var closedHeight: CGFloat  { get { return 60  } }
+    
+    func checkHeight() {
+        expandedView.isHidden = (frame.size.height < RepsTableViewCell.expandedHeight)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func watchFrameChanges() {
+        if !isObserving {
+            addObserver(self, forKeyPath: "frame", options: [NSKeyValueObservingOptions.new, NSKeyValueObservingOptions.initial], context: nil)
+            isObserving = true;
+        }
+    }
+    
+    func ignoreFrameChanges() {
+        if isObserving {
+            removeObserver(self, forKeyPath: "frame")
+            isObserving = false;
+        }
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "frame" {
+            checkHeight()
+        }
     }
 }

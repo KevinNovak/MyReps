@@ -178,6 +178,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="expandedView" destination="Hcu-mk-atS" id="Jof-S2-sUD"/>
                                     <outlet property="repImage" destination="dYU-2V-uf2" id="LAk-l2-Hba"/>
                                     <outlet property="repNameLabel" destination="Qza-TP-KlR" id="pa4-vW-Hhg"/>
                                     <outlet property="repTitleLabel" destination="1v7-PI-j52" id="uEe-K0-heN"/>

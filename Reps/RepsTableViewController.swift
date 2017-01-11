@@ -9,6 +9,7 @@
 import UIKit
 
 class RepsTableViewController: UITableViewController {
+    var selectedIndexPath : IndexPath?
     var reps: [[String:Any]] = [[String:Any]]()
     
     override func viewDidLoad() {
@@ -40,6 +41,49 @@ class RepsTableViewController: UITableViewController {
         cell.repTitleLabel.text = getRepTitle(row: indexPath.row)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let previousIndexPath = selectedIndexPath
+        if indexPath == selectedIndexPath {
+            selectedIndexPath = nil
+        } else {
+            selectedIndexPath = indexPath
+        }
+        
+        var indexPaths : Array<IndexPath> = []
+        if let previous = previousIndexPath {
+            indexPaths += [previous]
+        }
+        if let current = selectedIndexPath {
+            indexPaths += [current]
+        }
+        if indexPaths.count > 0 {
+            tableView.reloadRows(at: indexPaths, with: UITableViewRowAnimation.automatic)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (cell as! RepsTableViewCell).watchFrameChanges()
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (cell as! RepsTableViewCell).ignoreFrameChanges()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        for cell in tableView.visibleCells as! [RepsTableViewCell] {
+            cell.ignoreFrameChanges()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath == selectedIndexPath {
+            return RepsTableViewCell.expandedHeight
+        } else {
+            return RepsTableViewCell.closedHeight
+        }
     }
     
     // ========================================
@@ -75,10 +119,6 @@ class RepsTableViewController: UITableViewController {
             return image
         }
         return nil
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
     }
     
      // ========================================
