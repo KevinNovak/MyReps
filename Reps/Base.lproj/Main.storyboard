@@ -153,6 +153,18 @@
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcu-mk-atS" userLabel="Expanded View">
                                             <rect key="frame" x="0.0" y="60" width="375" height="150.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the expanded view!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCB-bg-vpG">
+                                                    <rect key="frame" x="86" y="65" width="203" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yCB-bg-vpG" firstAttribute="centerY" secondItem="Hcu-mk-atS" secondAttribute="centerY" id="nen-bJ-2y7"/>
+                                                <constraint firstItem="yCB-bg-vpG" firstAttribute="centerX" secondItem="Hcu-mk-atS" secondAttribute="centerX" id="ymh-6H-NMc"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
