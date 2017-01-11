@@ -78,7 +78,7 @@ class RepsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 200
     }
     
      // ========================================
@@ -108,7 +108,7 @@ class RepsTableViewController: UITableViewController {
             fullTitle = state + " "
             fullTitle += chamber + " ("
             fullTitle += party + ")"
-        } else if (chamber == "Representative") {
+        } else if (chamber == "Rep.") {
             let district = getRepDistrict(row: row)
             let districtPostFix = getNumPostFix(row: district)
             fullTitle = chamber + " of "
@@ -127,7 +127,7 @@ class RepsTableViewController: UITableViewController {
             if (chamber == "senate") {
                 chamberString = "Senator"
             } else if (chamber == "house") {
-                chamberString = "Representative"
+                chamberString = "Rep."
             }
         }
         return chamberString
