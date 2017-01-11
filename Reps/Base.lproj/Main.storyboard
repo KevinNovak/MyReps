@@ -259,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="3852" y="-142"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Bio Tab Bar Controller-->
         <scene sceneID="FBp-Cb-qfn">
             <objects>
-                <tabBarController id="YHP-3y-wSp" sceneMemberID="viewController">
+                <tabBarController id="YHP-3y-wSp" customClass="BioTabBarController" customModule="Reps" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="efI-aX-Q2n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
