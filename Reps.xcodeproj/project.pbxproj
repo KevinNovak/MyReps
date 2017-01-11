@@ -10,6 +10,7 @@
 		0A646B1E1E257BCA00BDC513 /* RepsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A646B1D1E257BCA00BDC513 /* RepsTableViewController.swift */; };
 		0A646B201E25844400BDC513 /* RepsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A646B1F1E25844400BDC513 /* RepsTableViewCell.swift */; };
 		0A646B241E258FC800BDC513 /* default_rep_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A646B231E258FC800BDC513 /* default_rep_image.png */; };
+		0ABDE0D81E2636C200E20EC2 /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABDE0D71E2636C200E20EC2 /* BioViewController.swift */; };
 		0ACBB3321E24C3F900877B04 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACBB3311E24C3F900877B04 /* AddressViewController.swift */; };
 		0AEDF5E91E2335110027ADF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEDF5E81E2335110027ADF3 /* AppDelegate.swift */; };
 		0AEDF5EE1E2335110027ADF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEDF5EC1E2335110027ADF3 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		0A646B1D1E257BCA00BDC513 /* RepsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepsTableViewController.swift; sourceTree = "<group>"; };
 		0A646B1F1E25844400BDC513 /* RepsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepsTableViewCell.swift; sourceTree = "<group>"; };
 		0A646B231E258FC800BDC513 /* default_rep_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_rep_image.png; sourceTree = "<group>"; };
+		0ABDE0D71E2636C200E20EC2 /* BioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
 		0ACBB3311E24C3F900877B04 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		0AEDF5E51E2335110027ADF3 /* Reps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEDF5E81E2335110027ADF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				0ACBB3311E24C3F900877B04 /* AddressViewController.swift */,
 				0A646B1D1E257BCA00BDC513 /* RepsTableViewController.swift */,
 				0A646B1F1E25844400BDC513 /* RepsTableViewCell.swift */,
+				0ABDE0D71E2636C200E20EC2 /* BioViewController.swift */,
 				0AEDF5EC1E2335110027ADF3 /* Main.storyboard */,
 				0AEDF5EF1E2335110027ADF3 /* Assets.xcassets */,
 				0A646B211E258FA500BDC513 /* Resources */,
@@ -167,6 +170,7 @@
 				0A646B1E1E257BCA00BDC513 /* RepsTableViewController.swift in Sources */,
 				0AEDF5E91E2335110027ADF3 /* AppDelegate.swift in Sources */,
 				0A646B201E25844400BDC513 /* RepsTableViewCell.swift in Sources */,
+				0ABDE0D81E2636C200E20EC2 /* BioViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
