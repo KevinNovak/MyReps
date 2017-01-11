@@ -167,15 +167,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rep Term" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHV-jg-Xqu">
-                                                    <rect key="frame" x="306" y="15" width="54" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <rect key="frame" x="287" y="14" width="58" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="IHV-jg-Xqu" secondAttribute="trailing" constant="15" id="DFv-BF-qAy"/>
-                                                <constraint firstItem="IHV-jg-Xqu" firstAttribute="top" secondItem="Hcu-mk-atS" secondAttribute="top" constant="15" id="SwB-iZ-G1q"/>
+                                                <constraint firstAttribute="trailing" secondItem="IHV-jg-Xqu" secondAttribute="trailing" constant="30" id="DFv-BF-qAy"/>
+                                                <constraint firstItem="IHV-jg-Xqu" firstAttribute="top" secondItem="Hcu-mk-atS" secondAttribute="top" constant="14" id="SwB-iZ-G1q"/>
                                                 <constraint firstItem="yCB-bg-vpG" firstAttribute="top" secondItem="8Ot-09-sji" secondAttribute="bottom" constant="30" id="bOA-ti-HMA"/>
                                                 <constraint firstItem="8Ot-09-sji" firstAttribute="top" secondItem="Hcu-mk-atS" secondAttribute="top" constant="10" id="lVa-2m-l5A"/>
                                                 <constraint firstItem="8Ot-09-sji" firstAttribute="leading" secondItem="Hcu-mk-atS" secondAttribute="leading" constant="15" id="sGX-77-ZSh"/>

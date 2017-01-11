@@ -219,7 +219,7 @@ class RepsTableViewController: UITableViewController {
     func getRepTerm(row: Int) -> String {
         let termStart = getRepTermStart(row: row)
         let termEnd = getRepTermEnd(row: row)
-        return termStart + " to " + termEnd
+        return termStart + " - " + termEnd
     }
     
     func getRepTermStart(row: Int) -> String {
@@ -227,7 +227,7 @@ class RepsTableViewController: UITableViewController {
         if let termStart = reps[row]["term_start"] as? String {
             termStartString = termStart
         }
-        return termStartString
+        return convertDate(dateString: termStartString)
     }
     
     func getRepTermEnd(row: Int) -> String {
@@ -235,7 +235,21 @@ class RepsTableViewController: UITableViewController {
         if let termEnd = reps[row]["term_end"] as? String {
             termEndString = termEnd
         }
-        return termEndString
+        return convertDate(dateString: termEndString)
+    }
+    
+    func convertDate(dateString: String) -> String {
+        let dateFmt = DateFormatter()
+        dateFmt.timeZone = NSTimeZone.default
+        dateFmt.dateFormat =  "yyyy-MM-dd"
+        
+        // Get NSDate for the given string
+        let oldDate = dateFmt.date(from: dateString)
+        
+        dateFmt.dateFormat =  "M/d/y"
+        let newDate = dateFmt.string(from: oldDate!)
+        
+        return newDate
     }
     
     /*
