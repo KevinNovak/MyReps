@@ -120,8 +120,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rep Chamber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v7-PI-j52">
-                                                    <rect key="frame" x="10" y="35" width="71.5" height="13.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rep Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v7-PI-j52">
+                                                    <rect key="frame" x="10" y="35" width="46.5" height="13.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -149,9 +149,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="repChamberLabel" destination="1v7-PI-j52" id="x5a-Jp-v9q"/>
                                     <outlet property="repImage" destination="dYU-2V-uf2" id="LAk-l2-Hba"/>
                                     <outlet property="repNameLabel" destination="Qza-TP-KlR" id="pa4-vW-Hhg"/>
+                                    <outlet property="repTitleLabel" destination="1v7-PI-j52" id="uEe-K0-heN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

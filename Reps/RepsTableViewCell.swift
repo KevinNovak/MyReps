@@ -12,8 +12,8 @@ class RepsTableViewCell: UITableViewCell {
 //    @IBOutlet weak var repImage: UIImageView!
     @IBOutlet weak var repImage: UIImageView!
     @IBOutlet weak var repNameLabel: UILabel!
-    @IBOutlet weak var repChamberLabel: UILabel!
-
+    @IBOutlet weak var repTitleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -33,77 +33,138 @@ class RepsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repCell", for: indexPath) as! RepsTableViewCell
 
         // image
-        cell.repImage.image = UIImage(named:"default_rep_image.png")
-        if let bioGuideID = reps[indexPath.row]["bioguide_id"] as? String {
-            let repImageURLString = "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/225x275/" + bioGuideID + ".jpg"
-            let repImageURL = URL(string: repImageURLString)
-            if let data = try? Data(contentsOf: repImageURL!) {
-                if let image = UIImage(data: data) {
-                    cell.repImage.image = image
-                }
-            }
-        }
-        
+        cell.repImage.image = getRepImage(row: indexPath.row)
+
         // name
-        if let firstName = reps[indexPath.row]["first_name"] as? String {
-            if let lastName = reps[indexPath.row]["last_name"] as? String {
-                let fullName = firstName + " " + lastName
-                cell.repNameLabel.text = fullName
-            }
+        cell.repNameLabel.text = getRepName(row: indexPath.row)
+        
+        // title
+        cell.repTitleLabel.text = getRepTitle(row: indexPath.row)
+        
+        return cell
+    }
+    
+    // ========================================
+    // Get Rep Title
+    // ========================================
+    func getRepTitle(row: Int) -> String {
+        var fullTitle = "Unknown"
+        
+        let chamber = getRepChamber(row: row)
+        let state = getRepState(row: row)
+        let party = getRepParty(row: row)
+        
+        if (chamber == "Senator") {
+            fullTitle = state + " "
+            fullTitle += chamber + " ("
+            fullTitle += party + ")"
+        } else if (chamber == "Representative") {
+            let district = getRepDistrict(row: row)
+            let districtPostFix = getNumPostFix(row: district)
+            fullTitle = chamber + " of "
+            fullTitle += state + "'s "
+            fullTitle += String(district)
+            fullTitle += districtPostFix + " District ("
+            fullTitle += party + ")"
         }
         
-        // state
-        var stateString = "Unknown"
-        if let state = reps[indexPath.row]["state_name"] as? String {
-            stateString = state
-        }
-        
-        // party
-        var partyString = "Unknown"
-        if let party = reps[indexPath.row]["party"] as? String {
-            partyString = party
-        }
-        
-        // chamber
+        return fullTitle
+    }
+    
+    func getRepChamber(row: Int) -> String {
         var chamberString = "Unknown"
-        var districtString = ""
-        if let chamber = reps[indexPath.row]["chamber"] as? String {
+        if let chamber = reps[row]["chamber"] as? String {
             if (chamber == "senate") {
                 chamberString = "Senator"
             } else if (chamber == "house") {
                 chamberString = "Representative"
-                
-                // district
-                if let district = reps[indexPath.row]["district"] as? Int {
-                    districtString = String(district)
-                    print("district: " + String(district))
-                } else {
-                    print("FAIL")
+            }
+        }
+        return chamberString
+    }
+    
+    func getRepState(row: Int) -> String {
+        var stateString = "Unknown"
+        if let state = reps[row]["state_name"] as? String {
+            stateString = state
+        }
+        return stateString
+    }
+    
+    func getRepParty(row: Int) -> String {
+        var partyString = "U"
+        if let party = reps[row]["party"] as? String {
+            partyString = party
+        }
+        return partyString
+    }
+    
+    func getRepDistrict(row: Int) -> Int {
+        var districtInt = -1
+        if let district = reps[row]["district"] as? Int {
+            districtInt = district
+        }
+        return districtInt
+    }
+    
+    func getNumPostFix(row: Int) -> String {
+        var numPostFix = "th"
+        if (row == 1) {
+            numPostFix = "st"
+        } else if (row == 2) {
+            numPostFix = "nd"
+        } else if (row == 3) {
+            numPostFix = "rd"
+        }
+        return numPostFix
+    }
+    
+    // ========================================
+    // Get Rep Name
+    // ========================================
+    func getRepName(row: Int) -> String {
+        if let firstName = reps[row]["first_name"] as? String {
+            if let lastName = reps[row]["last_name"] as? String {
+                let fullName = firstName + " " + lastName
+                return fullName
+            }
+        }
+        return "Unknown"
+    }
+    
+    // ========================================
+    // Get Rep Image
+    // ========================================
+    func getRepImage(row: Int) -> UIImage {
+        // try to get image, otherwise default
+        if let image = getRepImageFromAPI(row: row) {
+            return image
+        } else if let image = getRepImageFromDefault() {
+            return image
+        }
+        
+        // if default image fails, return new instance
+        return UIImage()
+    }
+    
+    func getRepImageFromAPI(row: Int) -> UIImage? {
+        if let bioGuideID = reps[row]["bioguide_id"] as? String {
+            let repImageURLString = "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/225x275/" + bioGuideID + ".jpg"
+            let repImageURL = URL(string: repImageURLString)
+            if let data = try? Data(contentsOf: repImageURL!) {
+                if let image = UIImage(data: data) {
+                    return image
                 }
             }
         }
-        
-        // full title
-        var fullTitle = "Unknown"
-        if (chamberString == "Senator") {
-            fullTitle = stateString + " " + chamberString + " (" + partyString + ")"
-        } else if (chamberString == "Representative") {
-            
-            var districtPostFix = "th"
-            if (districtString == "1") {
-                districtPostFix = "st"
-            } else if (districtString == "2") {
-                districtPostFix = "nd"
-            } else if (districtString == "3") {
-                districtPostFix = "rd"
-            }
-            
-            fullTitle = chamberString + " of " + stateString + "'s " + districtString + districtPostFix + " District (" + partyString + ")"
+        return nil
+    }
+    
+    func getRepImageFromDefault() -> UIImage? {
+        if let image = UIImage(named:"default_rep_image.png") {
+            return image
         }
-        
-        cell.repChamberLabel.text = fullTitle
-        
-        return cell
+        return nil
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
