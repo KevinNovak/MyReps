@@ -92,7 +92,7 @@
         <scene sceneID="aoJ-Is-4kG">
             <objects>
                 <tableViewController storyboardIdentifier="RepsTableViewController" id="chf-1V-U6V" customClass="RepsTableViewController" customModule="Reps" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="211" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rx3-Ey-wWS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="211" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rx3-Ey-wWS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -175,6 +175,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-o4-2y0">
                                                     <rect key="frame" x="275" y="106.5" width="80" height="30"/>
                                                     <state key="normal" title="See Full Bio"/>
+                                                    <connections>
+                                                        <action selector="seeFullBioButtonPressed:" destination="Lsm-oD-t7e" eventType="touchUpInside" id="l0F-hg-89n"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

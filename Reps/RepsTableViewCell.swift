@@ -10,15 +10,20 @@ import UIKit
 
 class RepsTableViewCell: UITableViewCell {
     var isObserving = false;
-
+    
+    class var expandedHeight: CGFloat { get { return 200 } }
+    class var closedHeight: CGFloat  { get { return 60  } }
+    
     @IBOutlet weak var repImage: UIImageView!
     @IBOutlet weak var repNameLabel: UILabel!
     @IBOutlet weak var repTitleLabel: UILabel!
     @IBOutlet weak var expandedView: UIView!
     @IBOutlet weak var repTermLabel: UILabel!
     
-    class var expandedHeight: CGFloat { get { return 200 } }
-    class var closedHeight: CGFloat  { get { return 60  } }
+    
+    @IBAction func seeFullBioButtonPressed(_ sender: Any) {
+        print("See Full Bio Pressed")
+    }
     
     func checkHeight() {
         expandedView.isHidden = (frame.size.height < RepsTableViewCell.expandedHeight)
