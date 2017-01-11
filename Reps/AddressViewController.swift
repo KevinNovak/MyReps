@@ -19,14 +19,19 @@ class AddressViewController: UIViewController {
     @IBAction func submitAddressButtonPressed(_ sender: Any) {
         print("Submitted Address Field: " + addressField.text!)
         
-        errorLabel.isHidden = true
+        DispatchQueue.main.async() {
+            self.errorLabel.isHidden = true
+        }
+        
         self.processAddress(address: self.addressField.text!)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        errorLabel.isHidden = true
+        DispatchQueue.main.async() {
+            self.errorLabel.isHidden = true
+        }
         
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
@@ -44,7 +49,9 @@ class AddressViewController: UIViewController {
             }
         } else {
             print("Address does not contain any representatives")
-            errorLabel.isHidden = false
+            DispatchQueue.main.async() {
+                self.errorLabel.isHidden = false
+            }
         }
     }
     
