@@ -59,7 +59,10 @@ class RepsTableViewController: UITableViewController {
             indexPaths += [current]
         }
         if indexPaths.count > 0 {
-            tableView.reloadRows(at: indexPaths, with: UITableViewRowAnimation.automatic)
+            // WARN: Causes flickering
+            // tableView.reloadRows(at: indexPaths, with: UITableViewRowAnimation.automatic)
+            tableView.beginUpdates()
+            tableView.endUpdates()
         }
     }
     
