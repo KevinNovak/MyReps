@@ -155,14 +155,30 @@
                                             <rect key="frame" x="0.0" y="60" width="375" height="150.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the expanded view!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCB-bg-vpG">
-                                                    <rect key="frame" x="86" y="65" width="203" height="21"/>
+                                                    <rect key="frame" x="86" y="60.5" width="203" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current term" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ot-09-sji">
+                                                    <rect key="frame" x="15" y="10" width="99" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rep Term" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHV-jg-Xqu">
+                                                    <rect key="frame" x="306" y="15" width="54" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="yCB-bg-vpG" firstAttribute="centerY" secondItem="Hcu-mk-atS" secondAttribute="centerY" id="nen-bJ-2y7"/>
+                                                <constraint firstAttribute="trailing" secondItem="IHV-jg-Xqu" secondAttribute="trailing" constant="15" id="DFv-BF-qAy"/>
+                                                <constraint firstItem="IHV-jg-Xqu" firstAttribute="top" secondItem="Hcu-mk-atS" secondAttribute="top" constant="15" id="SwB-iZ-G1q"/>
+                                                <constraint firstItem="yCB-bg-vpG" firstAttribute="top" secondItem="8Ot-09-sji" secondAttribute="bottom" constant="30" id="bOA-ti-HMA"/>
+                                                <constraint firstItem="8Ot-09-sji" firstAttribute="top" secondItem="Hcu-mk-atS" secondAttribute="top" constant="10" id="lVa-2m-l5A"/>
+                                                <constraint firstItem="8Ot-09-sji" firstAttribute="leading" secondItem="Hcu-mk-atS" secondAttribute="leading" constant="15" id="sGX-77-ZSh"/>
                                                 <constraint firstItem="yCB-bg-vpG" firstAttribute="centerX" secondItem="Hcu-mk-atS" secondAttribute="centerX" id="ymh-6H-NMc"/>
                                             </constraints>
                                         </view>
@@ -181,6 +197,7 @@
                                     <outlet property="expandedView" destination="Hcu-mk-atS" id="Jof-S2-sUD"/>
                                     <outlet property="repImage" destination="dYU-2V-uf2" id="LAk-l2-Hba"/>
                                     <outlet property="repNameLabel" destination="Qza-TP-KlR" id="pa4-vW-Hhg"/>
+                                    <outlet property="repTermLabel" destination="IHV-jg-Xqu" id="Fg3-vO-U2z"/>
                                     <outlet property="repTitleLabel" destination="1v7-PI-j52" id="uEe-K0-heN"/>
                                 </connections>
                             </tableViewCell>

@@ -39,6 +39,7 @@ class RepsTableViewController: UITableViewController {
         cell.repImage.image = getRepImage(row: indexPath.row)
         cell.repNameLabel.text = getRepName(row: indexPath.row)
         cell.repTitleLabel.text = getRepTitle(row: indexPath.row)
+        cell.repTermLabel.text = getRepTerm(row: indexPath.row)
         
         return cell
     }
@@ -124,7 +125,7 @@ class RepsTableViewController: UITableViewController {
         return nil
     }
     
-     // ========================================
+    // ========================================
     // Get Rep Name
     // ========================================
     func getRepName(row: Int) -> String {
@@ -210,6 +211,31 @@ class RepsTableViewController: UITableViewController {
             numPostFix = "rd"
         }
         return numPostFix
+    }
+    
+    // ========================================
+    // Get Rep Term
+    // ========================================
+    func getRepTerm(row: Int) -> String {
+        let termStart = getRepTermStart(row: row)
+        let termEnd = getRepTermEnd(row: row)
+        return termStart + " to " + termEnd
+    }
+    
+    func getRepTermStart(row: Int) -> String {
+        var termStartString = "Unknown"
+        if let termStart = reps[row]["term_start"] as? String {
+            termStartString = termStart
+        }
+        return termStartString
+    }
+    
+    func getRepTermEnd(row: Int) -> String {
+        var termEndString = "Unknown"
+        if let termEnd = reps[row]["term_end"] as? String {
+            termEndString = termEnd
+        }
+        return termEndString
     }
     
     /*

@@ -15,6 +15,7 @@ class RepsTableViewCell: UITableViewCell {
     @IBOutlet weak var repNameLabel: UILabel!
     @IBOutlet weak var repTitleLabel: UILabel!
     @IBOutlet weak var expandedView: UIView!
+    @IBOutlet weak var repTermLabel: UILabel!
     
     class var expandedHeight: CGFloat { get { return 200 } }
     class var closedHeight: CGFloat  { get { return 60  } }
